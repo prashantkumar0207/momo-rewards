@@ -36,34 +36,34 @@
     return el;
   }
 
-  /** A hand-drawn momo. filled=true → steamed & stamped, false → outline. */
+  /** The Momo Date dumpling. filled=true → a happy stamped momo, false → an empty dashed slot. */
   function momoSvg(filled = true) {
     const s = svgEl('svg', { viewBox: '0 0 64 64', 'aria-hidden': 'true' });
-    const ink = filled ? '#7a3b17' : '#d6c3ae';
-    if (filled) {
-      for (const d of ['M24 10 q-3 -4 0 -8', 'M32 8 q-3 -4 0 -7', 'M40 10 q-3 -4 0 -8']) {
-        s.append(svgEl('path', { d, fill: 'none', stroke: '#e2a37b', 'stroke-width': '2', 'stroke-linecap': 'round' }));
-      }
-    }
+    const ink = filled ? '#6d132d' : '#e9b3c9';
     s.append(svgEl('path', {
-      d: 'M7 45 C7 30 19 17 32 15 C45 17 57 30 57 45 C57 52 48 54 32 54 C16 54 7 52 7 45 Z',
-      fill: filled ? '#fff6e8' : 'none', stroke: ink, 'stroke-width': '2.5', 'stroke-linejoin': 'round',
+      d: 'M32 9 C29 9 27.5 11.5 27 14 C17 17 8 26 8 38 C8 50 19 56 32 56 C45 56 56 50 56 38 C56 26 47 17 37 14 C36.5 11.5 35 9 32 9 Z',
+      fill: filled ? '#fff0e4' : 'none', stroke: ink, 'stroke-width': filled ? '2.6' : '2.2', 'stroke-linejoin': 'round',
       'stroke-dasharray': filled ? '' : '4 4',
     }));
-    for (const d of ['M16 33 Q25 24 32 15', 'M23 40 Q28 27 32 15', 'M41 40 Q36 27 32 15', 'M48 33 Q39 24 32 15']) {
-      s.append(svgEl('path', { d, fill: 'none', stroke: ink, 'stroke-width': '2', 'stroke-linecap': 'round', opacity: filled ? '.85' : '.7' }));
+    for (const d of ['M30 12 Q22 17 19.5 26', 'M34 12 Q42 17 44.5 26', 'M32 11 Q31 17 29.5 22']) {
+      s.append(svgEl('path', { d, fill: 'none', stroke: ink, 'stroke-width': '2', 'stroke-linecap': 'round', opacity: filled ? '1' : '.7' }));
     }
-    s.append(svgEl('circle', { cx: 32, cy: 14, r: 3.2, fill: filled ? '#fff6e8' : 'none', stroke: ink, 'stroke-width': '2' }));
-    if (filled) s.append(svgEl('ellipse', { cx: 22, cy: 47, rx: 4, ry: 1.6, fill: '#f6c9a8', opacity: '.8' }));
+    if (filled) {
+      s.append(svgEl('path', { d: 'M20.5 36 q3.5 -4 7 0 M36.5 36 q3.5 -4 7 0', fill: 'none', stroke: ink, 'stroke-width': '2.4', 'stroke-linecap': 'round' }));
+      s.append(svgEl('path', { d: 'M26.5 40.5 Q32 41.5 37.5 40.5 Q36.5 48 32 48 Q27.5 48 26.5 40.5 Z', fill: ink }));
+      s.append(svgEl('path', { d: 'M28.6 45.3 Q32 43.2 35.4 45.3 Q34 47.6 32 47.6 Q30 47.6 28.6 45.3 Z', fill: '#f57785' }));
+      s.append(svgEl('circle', { cx: 17.5, cy: 42, r: 3.6, fill: '#fea7a0' }));
+      s.append(svgEl('circle', { cx: 46.5, cy: 42, r: 3.6, fill: '#fea7a0' }));
+    }
     return s;
   }
 
   function giftSvg() {
     const s = svgEl('svg', { viewBox: '0 0 64 64', 'aria-hidden': 'true' });
-    s.append(svgEl('rect', { x: 10, y: 26, width: 44, height: 28, rx: 4, fill: '#fff4d6', stroke: '#8a5a10', 'stroke-width': '2.5' }));
-    s.append(svgEl('rect', { x: 7, y: 18, width: 50, height: 10, rx: 3, fill: '#f8d26a', stroke: '#8a5a10', 'stroke-width': '2.5' }));
-    s.append(svgEl('path', { d: 'M32 18 V54', stroke: '#c2410c', 'stroke-width': '5' }));
-    s.append(svgEl('path', { d: 'M32 18 C24 6 14 12 22 18 M32 18 C40 6 50 12 42 18', fill: 'none', stroke: '#c2410c', 'stroke-width': '3', 'stroke-linecap': 'round' }));
+    s.append(svgEl('rect', { x: 10, y: 26, width: 44, height: 28, rx: 5, fill: '#fff0e4', stroke: '#6d132d', 'stroke-width': '2.5' }));
+    s.append(svgEl('rect', { x: 7, y: 18, width: 50, height: 10, rx: 4, fill: '#f8b5d6', stroke: '#6d132d', 'stroke-width': '2.5' }));
+    s.append(svgEl('path', { d: 'M32 18 V54', stroke: '#e8739b', 'stroke-width': '5' }));
+    s.append(svgEl('path', { d: 'M32 18 C24 6 14 12 22 18 M32 18 C40 6 50 12 42 18', fill: 'none', stroke: '#6d132d', 'stroke-width': '3', 'stroke-linecap': 'round' }));
     return s;
   }
 
@@ -137,7 +137,7 @@
   function confetti(n = 70) {
     if (window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const box = h('div', { class: 'confetti', 'aria-hidden': 'true' });
-    const colors = ['#c2410c', '#f2b33d', '#15803d', '#fb923c', '#7a3b17', '#fde68a'];
+    const colors = ['#6d132d', '#f8b5d6', '#e8739b', '#fea7a0', '#fee2d4', '#a3264f'];
     for (let i = 0; i < n; i++) {
       const p = h('i');
       p.style.left = Math.random() * 100 + 'vw';

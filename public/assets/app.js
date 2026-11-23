@@ -189,6 +189,7 @@
 
     put(app, 
       h('section', { class: 'card hero' },
+        h('img', { class: 'hero-logo', src: '/assets/logo-512.png', width: 150, height: 150, alt: config ? config.shop_name : '' }),
         h('div', { class: 'kicker' }, t.kicker),
         h('h1', null, t.offer(n)),
         config && config.reward_name ? h('div', { class: 'muted small' }, config.reward_name) : null,

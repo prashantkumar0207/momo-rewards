@@ -4,32 +4,35 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Counter poster</title>
-  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="/assets/favicon-48.png" type="image/png">
   <link rel="stylesheet" href="/assets/base.css">
   <style>
     @page { size: A4; margin: 0; }
-    body { background: #e9e1d6; }
+    body { background: #f3dbe6; }
     .sheet { width: 210mm; min-height: 297mm; margin: 1rem auto; background: #fff; padding: 16mm 14mm; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: var(--shadow); }
-    .shop { font-size: 30pt; font-weight: 900; color: var(--brand); letter-spacing: -.01em; }
+    .sheet { background: linear-gradient(180deg, #fff 0%, #fdeaf2 100%); }
+    .logo { width: 82mm; height: 82mm; margin-top: -4mm; }
+    .shop { position: absolute; left: -9999px; }
     .tag { font-size: 13pt; color: var(--ink-2); margin-top: 2mm; }
-    .offer { font-size: 40pt; font-weight: 900; line-height: 1.05; margin: 10mm 0 3mm; }
-    .offer em { font-style: normal; color: var(--brand); }
+    .offer { font-family: var(--display); font-size: 38pt; font-weight: 900; color: var(--brand); line-height: 1.05; margin: 2mm 0 3mm; }
+    .offer em { font-style: normal; color: var(--pink-2); }
     .hi { font-size: 20pt; font-weight: 800; color: var(--ink-2); }
-    .stamps { width: 150mm; margin: 9mm auto 10mm; }
-    .qrbox { border: 3mm solid var(--brand); border-radius: 8mm; padding: 5mm; }
-    .qrbox img { width: 78mm; height: 78mm; }
-    .scan { font-size: 18pt; font-weight: 800; margin-top: 5mm; }
+    .stamps { width: 150mm; margin: 7mm auto 9mm; }
+    .qrbox { border: 3mm solid var(--pink); border-radius: 8mm; padding: 5mm; background: #fff; box-shadow: 0 0 0 1.2mm var(--brand); }
+    .qrbox img { width: 70mm; height: 70mm; }
+    .scan { font-size: 17pt; font-weight: 800; color: var(--brand); margin-top: 5mm; }
     .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 9mm; width: 100%; }
-    .steps div { background: var(--brand-soft); border-radius: 5mm; padding: 4mm; font-size: 12pt; font-weight: 700; }
-    .steps b { display: block; font-size: 20pt; color: var(--brand); }
+    .steps div { background: var(--brand-soft); border: .4mm solid var(--pink); border-radius: 5mm; padding: 4mm; font-size: 12pt; font-weight: 700; color: var(--brand); }
+    .steps b { display: block; font-family: var(--display); font-size: 22pt; color: var(--pink-2); }
     .foot { margin-top: auto; padding-top: 8mm; font-size: 10pt; color: var(--ink-3); }
-    .bar { position: sticky; top: 0; background: #2a1d16; padding: .6rem; text-align: center; }
+    .bar { position: sticky; top: 0; background: var(--brand); padding: .6rem; text-align: center; z-index: 2; }
     @media print { body { background: #fff; } .bar { display: none; } .sheet { margin: 0; box-shadow: none; } }
   </style>
 </head>
 <body>
   <div class="bar"><button class="btn primary" id="print">🖨 Print this poster</button></div>
   <div class="sheet">
+    <img class="logo" src="/assets/logo-512.png" alt="">
     <div class="shop" id="shop">Momo Point</div>
     <div class="tag" id="tag"></div>
     <div class="offer" id="offer"></div>

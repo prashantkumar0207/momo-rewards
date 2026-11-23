@@ -1,7 +1,8 @@
 /* Service worker: makes the customer card installable and open instantly / offline.
    Only the customer app shell is cached; every API call goes to the network. */
-const CACHE = 'momo-card-v1';
-const SHELL = ['/', '/assets/base.css', '/assets/app.css', '/assets/common.js', '/assets/app.js', '/assets/icon.svg', '/assets/icon-192.png'];
+const CACHE = 'momo-card-v2';
+const SHELL = ['/', '/assets/base.css', '/assets/app.css', '/assets/common.js', '/assets/app.js', '/assets/logo-96.png', '/assets/logo-512.png', '/assets/icon-192.png',
+  '/assets/fonts/fraunces-latin-600-normal.woff2', '/assets/fonts/fraunces-latin-900-normal.woff2'];
 
 self.addEventListener('install', (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(SHELL)).then(() => self.skipWaiting()));

@@ -36,7 +36,7 @@
 
   function authCard(...kids) {
     return h('div', { class: 'auth' }, h('div', { class: 'card stack' },
-      h('div', { class: 'logo' }, h('img', { src: '/assets/icon.svg', width: 36, height: 36, alt: '' }), 'Momo Rewards · Counter'), ...kids));
+      h('div', { class: 'logo' }, h('img', { src: '/assets/logo-256.png', width: 110, height: 110, alt: 'Momo Date' }), 'Counter'), ...kids));
   }
 
   function renderSetup(st) {
@@ -96,7 +96,7 @@
     view = h('main', { class: 'page' });
     put(root, 
       h('header', { class: 'shell-top' }, h('div', { class: 'in' },
-        h('div', { class: 'logo' }, h('img', { src: '/assets/icon.svg', width: 28, height: 28, alt: '' }), h('span', null, S.settings.shop_name)),
+        h('div', { class: 'logo' }, h('img', { src: '/assets/logo-96.png', width: 34, height: 34, alt: '' }), h('span', null, S.settings.shop_name)),
         nav,
         h('span', { class: 'who' }, S.me.name + (isOwner() ? ' · owner' : '')),
         h('button', { class: 'btn sm', onclick: async () => { await api('POST', '/api/admin/logout', {}).catch(() => {}); S.me = null; renderLogin(); } }, 'Log out'))),
@@ -544,8 +544,8 @@
     const add = (tag, at) => { const e = document.createElementNS(NS, tag); for (const k in at) e.setAttribute(k, at[k]); svg.append(e); return e; };
     for (let v = 0; v <= top; v += step) {
       const y = padT + plotH - (v / top) * plotH;
-      add('line', { x1: padL, x2: W, y1: y, y2: y, stroke: '#eee3d6', 'stroke-width': 1 });
-      const t = add('text', { x: padL - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 11, fill: '#9a897b' }); t.textContent = v;
+      add('line', { x1: padL, x2: W, y1: y, y2: y, stroke: '#f6dde8', 'stroke-width': 1 });
+      const t = add('text', { x: padL - 6, y: y + 4, 'text-anchor': 'end', 'font-size': 11, fill: '#a98090' }); t.textContent = v;
     }
     const wrap = h('div', { class: 'chart' });
     const tip = h('div', { class: 'tip', hidden: true });
@@ -555,10 +555,10 @@
       const w = Math.max(2, Math.min(bw - 2, 26));
       const bx = x + (bw - w) / 2; const by = padT + plotH - bh; const r = Math.min(4, w / 2, bh);
       if (bh > 0) {
-        add('path', { d: `M${bx},${padT + plotH} V${by + r} Q${bx},${by} ${bx + r},${by} H${bx + w - r} Q${bx + w},${by} ${bx + w},${by + r} V${padT + plotH} Z`, fill: '#c2410c' });
+        add('path', { d: `M${bx},${padT + plotH} V${by + r} Q${bx},${by} ${bx + r},${by} H${bx + w - r} Q${bx + w},${by} ${bx + w},${by + r} V${padT + plotH} Z`, fill: '#a3264f' });
       }
       if (i % labelEvery === 0) {
-        const t = add('text', { x: x + bw / 2, y: H - 6, 'text-anchor': 'middle', 'font-size': 11, fill: '#9a897b' }); t.textContent = fmtLabel(p);
+        const t = add('text', { x: x + bw / 2, y: H - 6, 'text-anchor': 'middle', 'font-size': 11, fill: '#a98090' }); t.textContent = fmtLabel(p);
       }
       const hit = add('rect', { x, y: padT, width: bw, height: plotH, fill: 'transparent' });
       hit.addEventListener('mouseenter', () => {
@@ -568,7 +568,7 @@
       });
       hit.addEventListener('mouseleave', () => { tip.hidden = true; });
     });
-    add('line', { x1: padL, x2: W, y1: padT + plotH, y2: padT + plotH, stroke: '#d8c8b6', 'stroke-width': 1 });
+    add('line', { x1: padL, x2: W, y1: padT + plotH, y2: padT + plotH, stroke: '#e9b3c9', 'stroke-width': 1 });
     wrap.append(svg, tip);
     return wrap;
   }

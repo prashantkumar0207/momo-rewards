@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Counter poster</title>
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/base.css">
+  <style>
+    @page { size: A4; margin: 0; }
+    body { background: #e9e1d6; }
+    .sheet { width: 210mm; min-height: 297mm; margin: 1rem auto; background: #fff; padding: 16mm 14mm; display: flex; flex-direction: column; align-items: center; text-align: center; box-shadow: var(--shadow); }
+    .shop { font-size: 30pt; font-weight: 900; color: var(--brand); letter-spacing: -.01em; }
+    .tag { font-size: 13pt; color: var(--ink-2); margin-top: 2mm; }
+    .offer { font-size: 40pt; font-weight: 900; line-height: 1.05; margin: 10mm 0 3mm; }
+    .offer em { font-style: normal; color: var(--brand); }
+    .hi { font-size: 20pt; font-weight: 800; color: var(--ink-2); }
+    .stamps { width: 150mm; margin: 9mm auto 10mm; }
+    .qrbox { border: 3mm solid var(--brand); border-radius: 8mm; padding: 5mm; }
+    .qrbox img { width: 78mm; height: 78mm; }
+    .scan { font-size: 18pt; font-weight: 800; margin-top: 5mm; }
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; margin-top: 9mm; width: 100%; }
+    .steps div { background: var(--brand-soft); border-radius: 5mm; padding: 4mm; font-size: 12pt; font-weight: 700; }
+    .steps b { display: block; font-size: 20pt; color: var(--brand); }
+    .foot { margin-top: auto; padding-top: 8mm; font-size: 10pt; color: var(--ink-3); }
+    .bar { position: sticky; top: 0; background: #2a1d16; padding: .6rem; text-align: center; }
+    @media print { body { background: #fff; } .bar { display: none; } .sheet { margin: 0; box-shadow: none; } }
+  </style>
+</head>
+<body>
+  <div class="bar"><button class="btn primary" id="print">🖨 Print this poster</button></div>
+  <div class="sheet">
+    <div class="shop" id="shop">Momo Point</div>
+    <div class="tag" id="tag"></div>
+    <div class="offer" id="offer"></div>
+    <div class="hi" id="offerHi"></div>
+    <div id="grid"></div>
+    <div class="qrbox"><img id="qr" alt="Scan to join"></div>
+    <div class="scan">Scan with your phone camera · कैमरा से स्कैन करें</div>
+    <div class="steps">
+      <div><b>1</b>Scan &amp; join free<br>स्कैन करें</div>
+      <div><b>2</b>Show card at counter<br>कार्ड दिखाएँ</div>
+      <div><b>3</b>Every plate = 1 stamp<br>हर प्लेट = 1 स्टैम्प</div>
+    </div>
+    <div class="foot" id="foot">No app download needed</div>
+  </div>
+  <script src="/assets/common.js"></script>
+  <script src="/assets/poster.js"></script>
+</body>
+</html>

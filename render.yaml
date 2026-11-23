@@ -1,0 +1,20 @@
+# Render Blueprint — FREE setup: free web service + free external PostgreSQL (e.g. Neon).
+# During "New → Blueprint" Render asks you to paste DATABASE_URL (your Neon connection string).
+# Note: free services sleep after ~15 min without visitors and take up to a minute to wake.
+# For an always-on paid setup with a disk instead, see README → Option A.
+services:
+  - type: web
+    name: momo-rewards
+    runtime: node
+    plan: free
+    region: singapore
+    buildCommand: npm ci --omit=dev
+    startCommand: node server/index.js
+    healthCheckPath: /healthz
+    envVars:
+      - key: NODE_VERSION
+        value: "22"
+      - key: DATABASE_URL
+        sync: false
+      - key: SETUP_CODE
+        generateValue: true

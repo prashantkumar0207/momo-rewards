@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Momo Rewards</title>
+  <meta name="description" content="Your digital momo stamp card — buy 5 plates, get 1 free.">
+  <meta name="theme-color" content="#c2410c">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/assets/icon-192.png">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Momo Card">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/app.css">
+</head>
+<body>
+  <header class="top">
+    <div class="wrap row between">
+      <div class="brand">
+        <img src="/assets/icon.svg" alt="" width="34" height="34">
+        <div>
+          <div class="shop" id="shopName">Momo Rewards</div>
+          <div class="tagline tiny" id="tagline"></div>
+        </div>
+      </div>
+      <button class="btn sm ghost" id="langBtn" type="button" aria-label="Change language">हिंदी</button>
+    </div>
+  </header>
+  <main class="wrap" id="app" aria-live="polite">
+    <div class="loading"><div class="spinner"></div></div>
+  </main>
+  <footer class="wrap foot tiny muted" id="foot"></footer>
+  <noscript><p class="wrap">Please enable JavaScript to see your momo card.</p></noscript>
+  <script src="/assets/common.js"></script>
+  <script src="/assets/app.js"></script>
+</body>
+</html>

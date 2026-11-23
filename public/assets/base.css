@@ -3,7 +3,7 @@
 @font-face { font-family: "Fraunces"; font-weight: 600 700; font-style: normal; font-display: swap; src: url("/assets/fonts/fraunces-latin-600-normal.woff2") format("woff2"); }
 @font-face { font-family: "Fraunces"; font-weight: 800 900; font-style: normal; font-display: swap; src: url("/assets/fonts/fraunces-latin-900-normal.woff2") format("woff2"); }
 :root {
-  --bg: #fdf1f5;
+  --bg: #f5ebe1;
   --surface: #ffffff;
   --surface-2: #fdebf2;
   --ink: #3d0d1c;
